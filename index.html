@@ -23,7 +23,6 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: white;
             border-radius: 30px;
             overflow: hidden;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
@@ -321,19 +320,59 @@
         @media print {
             body {
                 padding: 0;
+                margin: 0;
             }
 
             .container {
                 box-shadow: none;
-                grid-template-columns: 320px 1fr;
+                border-radius: 0;
+                max-width: 100%;
+                grid-template-columns: 300px 1fr;
+                page-break-inside: avoid;
             }
 
             .sidebar {
-                padding: 30px 25px;
+                padding: 20px;
+                page-break-inside: avoid;
+            }
+
+            .profile-img {
+                width: 140px;
+                height: 140px;
+            }
+
+            .name {
+                font-size: 26px;
+            }
+
+            .title {
+                font-size: 16px;
             }
 
             .main-content {
-                padding: 30px 40px;
+                padding: 20px 30px;
+            }
+
+            .experience-item,
+            .formation-item {
+                page-break-inside: avoid;
+                margin-bottom: 10px;
+            }
+
+            .main-section {
+                page-break-inside: avoid;
+            }
+
+            .exp-description li {
+                font-size: 11px;
+            }
+
+            .exp-title {
+                font-size: 14px;
+            }
+
+            .main-section-title {
+                font-size: 20px;
             }
         }
 
