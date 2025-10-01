@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Youssef El-kalloubi</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #7F00FF 0%, #E100FF 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            display: grid;
+            grid-template-columns: 380px 1fr;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #1a0a2e 0%, #0f051d 100%);
+            color: white;
+            padding: 50px 40px;
+            position: relative;
+        }
+
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(135deg, #7F00FF, #E100FF);
+            opacity: 0.3;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 6px solid #7F00FF;
+            margin: 0 auto 30px;
+            display: block;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(127, 0, 255, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 20px;
+            color: #7F00FF;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 13px;
+            color: #a8a8a8;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .cdi-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #7F00FF, #E100FF);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(127, 0, 255, 0.4);
+            text-transform: uppercase;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: #7F00FF;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #7F00FF, #E100FF);
+            border-radius: 2px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .contact-item::before {
+            content: '▸';
+            color: #7F00FF;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .languages {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .lang-level {
+            background: rgba(127, 0, 255, 0.3);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .main-content {
+            padding: 50px 60px;
+            background: #fafafa;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #7F00FF 0%, #E100FF 100%);
+            color: white;
+            padding: 20px 25px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(127, 0, 255, 0.3);
+        }
+
+        .intro-box p {
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .main-section {
+            margin-bottom: 35px;
+        }
+
+        .main-section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .main-section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 40px;
+            background: linear-gradient(180deg, #7F00FF, #E100FF);
+            border-radius: 3px;
+        }
+
+        .experience-item,
+        .formation-item {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #7F00FF;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .experience-item:hover,
+        .formation-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(127, 0, 255, 0.2);
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .exp-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 3px;
+        }
+
+        .exp-company {
+            font-size: 13px;
+            color: #7F00FF;
+            font-weight: 600;
+        }
+
+        .exp-date {
+            background: linear-gradient(135deg, #7F00FF, #E100FF);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .exp-description {
+            margin-top: 8px;
+        }
+
+        .exp-description ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .exp-description li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 6px;
+            font-size: 12px;
+            line-height: 1.4;
+            color: #555;
+        }
+
+        .exp-description li::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            color: #7F00FF;
+            font-size: 14px;
+        }
+
+        .tech-stack {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed #e0e0e0;
+            font-size: 11px;
+            color: #E100FF;
+            font-style: italic;
+        }
+
+        .competences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+        }
+
+        .comp-category {
+            background: white;
+            padding: 12px 16px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .comp-category-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #7F00FF;
+            margin-bottom: 6px;
+        }
+
+        .comp-items {
+            font-size: 11px;
+            line-height: 1.4;
+            color: #555;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+                grid-template-columns: 320px 1fr;
+            }
+
+            .sidebar {
+                padding: 30px 25px;
+            }
+
+            .main-content {
+                padding: 30px 40px;
+            }
+        }
+
+        @media (max-width: 968px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                padding: 40px 30px;
+            }
+
+            .main-content {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <img src="https://i.imgur.com/iibOfHZ.png" alt="Youssef El-kalloubi" class="profile-img">
+
+            <h1 class="name">Youssef<br>El-kalloubi</h1>
+            <p class="title">Développeur Analyste</p>
+            <p class="subtitle">Java / Python / C# / PHP / C++ / Ruby</p>
+            <div style="text-align: center; margin-bottom: 40px;">
+                <span class="cdi-badge">Recherche CDI/CDD</span>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Contact</h2>
+                <div class="contact-item">06 16 10 81 91</div>
+                <div class="contact-item">youssefelkalloubi54@gmail.com</div>
+                <div class="contact-item"><a href="https://www.linkedin.com/in/youssef-el-kalloubi-310a1b200"
+                        target="_blank" style="color: #7F00FF; text-decoration: none;">LinkedIn Profile</a></div>
+                <div class="contact-item"><a href="https://dapper-marigold-a1c390.netlify.app/" target="_blank"
+                        style="color: #7F00FF; text-decoration: none;">Portfolio</a></div>
+                <div class="contact-item"><a href="https://github.com/YoussefELKALLOUBI/youssef-el-kalloubi"
+                        target="_blank" style="color: #7F00FF; text-decoration: none;">GitHub</a></div>
+                <div class="contact-item">Permis B - Toute la France</div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Langues</h2>
+                <div class="languages">
+                    <div class="lang-item">
+                        <span>Français</span>
+                        <span class="lang-level">C2</span>
+                    </div>
+                    <div class="lang-item">
+                        <span>Anglais</span>
+                        <span class="lang-level">B2</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Formation</h2>
+                <div style="margin-bottom: 20px;">
+                    <div style="font-weight: 600; font-size: 14px; margin-bottom: 5px;">Master 2 MIAGE</div>
+                    <div style="font-size: 12px; color: #a8a8a8; margin-bottom: 3px;">Univ d'Orléans - Phileas</div>
+                    <div style="font-size: 11px; color: #7F00FF;">2024/25 • Rang: 6/32</div>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <div style="font-weight: 600; font-size: 14px; margin-bottom: 5px;">Master 1 MIAGE</div>
+                    <div style="font-size: 12px; color: #a8a8a8; margin-bottom: 3px;">Univ d'Orléans - Sylvamap</div>
+                    <div style="font-size: 11px; color: #7F00FF;">2023/24 • Rang: 30/59</div>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <div style="font-weight: 600; font-size: 14px; margin-bottom: 5px;">Licence MIAGE</div>
+                    <div style="font-size: 12px; color: #a8a8a8; margin-bottom: 3px;">Univ d'Orléans</div>
+                    <div style="font-size: 11px; color: #7F00FF;">2022/23 • Rang: 8/58</div>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <div style="font-weight: 600; font-size: 14px; margin-bottom: 5px;">BTS SIO - SLAM</div>
+                    <div style="font-size: 12px; color: #a8a8a8; margin-bottom: 3px;">Lycée La Joliverie - Nantes</div>
+                    <div style="font-size: 11px; color: #7F00FF;">2020/22 • Moy: 13,50</div>
+                </div>
+                <div>
+                    <div style="font-weight: 600; font-size: 14px; margin-bottom: 5px;">Bac Physique-Chimie</div>
+                    <div style="font-size: 12px; color: #a8a8a8; margin-bottom: 3px;">Lycée Wed Elmakhazen</div>
+                    <div style="font-size: 11px; color: #7F00FF;">2019/20 • Moy: 15,45</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Références</h2>
+                <div style="font-size: 13px; line-height: 1.6; color: #a8a8a8; font-style: italic;">
+                    Disponibles sur demande
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="intro-box">
+                <p>Diplômé d'un Master MIAGE en alternance, avec <strong>5 ans d'études axées sur le langage
+                        Java</strong>. J'ai acquis <strong>2 ans d'expérience en entreprise</strong> ainsi que 2 stages.
+                    Je suis actuellement à la recherche d'un <strong>CDI/CDD</strong>, avec
+                    une mobilité sur toute la France.</p>
+            </div>
+
+            <div class="main-section">
+                <h2 class="main-section-title">Expérience Professionnelle</h2>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">Développeur Logiciel C#/C++ & Mobile</div>
+                            <div class="exp-company">Phileas Technologie - Alternance M2 MIAGE</div>
+                        </div>
+                        <div class="exp-date">2024/25 • 12 mois</div>
+                    </div>
+                    <div class="exp-description">
+                        <ul>
+                            <li>Résolution de bugs en production d'un logiciel de vidéosurveillance : Perte de flux
+                                vidéo en direct, problèmes de décodage. Intervention directe sur les machines clients.
+                            </li>
+                            <li>Développement et tests de nouvelles DLL/EXE, puis préparation de patchs correctifs.</li>
+                            <li>Analyse et relecture de code C++ : Détection et correction de fuites de mémoire.</li>
+                            <li>Correction de l'application mobile associée.</li>
+                            <li>Tests et validation des correctifs : vérification en conditions réelles pour garantir la
+                                stabilité du système.</li>
+                        </ul>
+                        <div class="tech-stack">C#, C++, .NET, WinForms, Cordova, RTSP, ONVIF</div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">Développeur Python (Django)</div>
+                            <div class="exp-company">Sylvamap - Alternance M1 MIAGE</div>
+                        </div>
+                        <div class="exp-date">2023/24 • 12 mois</div>
+                    </div>
+                    <div class="exp-description">
+                        <ul>
+                            <li>Intégration complète d'une double authentification par SMS (2FA) sans bibliothèque
+                                externe (analyse, conception, développement, tests techniques et fonctionnels).</li>
+                            <li>Ajout de fonctionnalités liées à la gestion des droits d'accès, des dossiers et des
+                                dessins géo.</li>
+                        </ul>
+                        <div class="tech-stack">Python, Django, Unittest, Ionic</div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">Développeur Ruby</div>
+                            <div class="exp-company">WebConcepter - Stage</div>
+                        </div>
+                        <div class="exp-date">2022 • 6 sem</div>
+                    </div>
+                    <div class="exp-description">
+                        <ul>
+                            <li>Développement d'une API permettant de suivre la présence des techniciens sur chantier.
+                            </li>
+                            <li>Réalisation de tests avec Postman : création, mise à jour, suppression, etc.</li>
+                        </ul>
+                        <div class="tech-stack">Ruby on Rails, Ruby, PostgreSQL</div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">Développeur Front-end</div>
+                            <div class="exp-company">Oniris - Stage de découverte</div>
+                        </div>
+                        <div class="exp-date">2021 • 5 sem</div>
+                    </div>
+                    <div class="exp-description">
+                        <ul>
+                            <li>Evolution du portail informatique de l'école nationale vétérinaire ONIRIS.</li>
+                        </ul>
+                        <div class="tech-stack">HTML, CSS</div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">Projets académiques et personnels</div>
+                        </div>
+                        <div class="exp-date">5 ans</div>
+                    </div>
+                    <div class="exp-description">
+                        <ul>
+                            <li><strong>Microservices - Livraison de Plats :</strong> Architecture microservices
+                                complète avec 5 services, communication REST/RabbitMQ, sécurité JWT et découverte de
+                                services Consul.</li>
+                            <li><strong>Gestion des Salariés :</strong> Interface desktop JavaFX pour gestion complète
+                                des
+                                salariés (CRUD)</li>
+                            </li>
+                            <li><strong>Gestion de Restaurants :</strong> Application web PHP orientée objet pour la
+                                gestion
+                                des restaurants et types de
+                                cuisine.</li>
+                        </ul>
+                        <div class="tech-stack">Java, PHP, Spring Boot, JavaFX, RabbitMQ, PostgreSQL, JWT, Consul, MVC,
+                            Microservices, Symfony</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-section">
+                <h2 class="main-section-title">Compétences Techniques</h2>
+                <div class="competences-grid">
+                    <div class="comp-category">
+                        <div class="comp-category-title">Métiers</div>
+                        <div class="comp-items">Retraite, Vidéosurveillance, Finance, Géomatique, Cryptomonnaie,
+                            Assurance, Banque</div>
+                    </div>
+                    <div class="comp-category">
+                        <div class="comp-category-title">POO</div>
+                        <div class="comp-items">JAVA (maîtrise), PYTHON, PHP, C++, C#, RUBY</div>
+                    </div>
+                    <div class="comp-category">
+                        <div class="comp-category-title">Web</div>
+                        <div class="comp-items">HTML, CSS, JavaScript</div>
+                    </div>
+                    <div class="comp-category">
+                        <div class="comp-category-title">Bases de Données</div>
+                        <div class="comp-items">Power BI, Talend, SQL, PL-SQL, Oracle, MongoDB, PostgreSQL, Merise, R
+                        </div>
+                    </div>
+                    <div class="comp-category">
+                        <div class="comp-category-title">Frameworks</div>
+                        <div class="comp-items">.NET, WinForms, Django, JavaFX, Symfony, Struts, JEE, RubyOnRails,
+                            Angular, jQuery, Hibernate, JPA</div>
+                    </div>
+                    <div class="comp-category">
+                        <div class="comp-category-title">Microservices</div>
+                        <div class="comp-items">Spring Boot, REST, RabbitMQ, Consul</div>
+                    </div>
+                    <div class="comp-category">
+                        <div class="comp-category-title">Tests</div>
+                        <div class="comp-items">Postman, Selenium, SOAP UI, Unittest, JUnit, Mockito</div>
+                    </div>
+                    <div class="comp-category">
+                        <div class="comp-category-title">Mobile</div>
+                        <div class="comp-items">Ionic, Cordova</div>
+                    </div>
+                    <div class="comp-category">
+                        <div class="comp-category-title">DevOps</div>
+                        <div class="comp-items">Git, Maven, Docker, Azure, Confluence, Jira</div>
+                    </div>
+                    <div class="comp-category">
+                        <div class="comp-category-title">Gestion de projet</div>
+                        <div class="comp-items">Cycle en V, Agile</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
